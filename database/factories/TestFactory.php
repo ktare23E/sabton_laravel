@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Test>
@@ -18,6 +19,7 @@ class TestFactory extends Factory
     {
         return [
             'name' => $this->faker->text(),
+            'user_id' => User::factory(),
         ];
     }
 }
