@@ -22,15 +22,19 @@ class TestController extends Controller
         //             ]);
         // dd($tests);
 
-        $tests = DB::table('tests')
-                    ->whereNotBetween('user_age',[40,50])
-                    ->orderBy('user_age','asc')
-                    ->get();
-  
+        DB::transaction(function(){
+            DB::table('tests')
+                ->where('user_id', 6)
+                ->decrement('balance',100);
+
+            DB::table('tests')
+                ->where('user_id',7)
+                ->increment('balance',100);
+        });
         
-        return view('test',[
-            'tests' => $tests,
-        ]);
+        // return view('test',[
+        //     'tests' => $tests,
+        // ]);
     }
 
     /**
