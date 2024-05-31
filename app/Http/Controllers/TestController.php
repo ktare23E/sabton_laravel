@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Test;
 use App\Http\Requests\StoreTestRequest;
 use App\Http\Requests\UpdateTestRequest;
+use Illuminate\Support\Facades\DB;
 
 class TestController extends Controller
 {
@@ -13,7 +14,14 @@ class TestController extends Controller
      */
     public function index()
     {
-        //
+        $tests = DB::table('tests')
+                    ->select('name')
+                    ->get();
+        
+
+        return view('test',[
+            'tests' => $tests,
+        ]);
     }
 
     /**
