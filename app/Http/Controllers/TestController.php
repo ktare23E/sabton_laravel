@@ -7,6 +7,7 @@ use App\Http\Requests\StoreTestRequest;
 use App\Http\Requests\UpdateTestRequest;
 use Illuminate\Support\Facades\DB;
 
+
 class TestController extends Controller
 {
     /**
@@ -15,10 +16,12 @@ class TestController extends Controller
     public function index()
     {
         $tests = DB::table('tests')
-                    ->select('name')
-                    ->get();
+                    ->insertGetId([
+                        'user_id' => 8,
+                        'name' => 'Test X',
+                    ]);
+        dd($tests);
         
-
         return view('test',[
             'tests' => $tests,
         ]);
