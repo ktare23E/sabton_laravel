@@ -24,7 +24,8 @@ class TestController extends Controller
 
 
         $tests = DB::table('tests')
-                    ->truncate();
+                    ->orWhereNot('user_age', '>',50)
+                    ->get();
 
         dd($tests);
         

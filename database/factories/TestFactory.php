@@ -20,6 +20,7 @@ class TestFactory extends Factory
         return [
             'name' => $this->faker->text(),
             'user_id' => User::factory(),
+            'user_age' => $this->faker->numberBetween(1, 100),
         ];
     }
 }
