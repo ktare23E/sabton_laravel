@@ -15,11 +15,17 @@ class TestController extends Controller
      */
     public function index()
     {
+        // $tests = DB::table('tests')
+        //             ->insertGetId([
+        //                 'user_id' => 8,
+        //                 'name' => 'Test X',
+        //             ]);
+        // dd($tests);
+
+
         $tests = DB::table('tests')
-                    ->insertGetId([
-                        'user_id' => 8,
-                        'name' => 'Test X',
-                    ]);
+                    ->truncate();
+
         dd($tests);
         
         return view('test',[
