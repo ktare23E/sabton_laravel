@@ -22,12 +22,11 @@ class TestController extends Controller
         //             ]);
         // dd($tests);
 
-
         $tests = DB::table('tests')
-                    ->orWhereNot('user_age', '>',50)
+                    ->whereNotBetween('user_age',[40,50])
+                    ->orderBy('user_age','asc')
                     ->get();
-
-        dd($tests);
+  
         
         return view('test',[
             'tests' => $tests,

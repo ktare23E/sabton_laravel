@@ -8,7 +8,7 @@
 </head>
 <body>
     @foreach ($tests as $test )
-        <h1><?= $test; ?></h1>
+        <h1><?= $test->user_age; ?></h1>
     @endforeach
     <h1>This is the added part</h1>
 
