@@ -21,6 +21,7 @@ class TestFactory extends Factory
             'name' => $this->faker->text(),
             'user_id' => User::factory(),
             'user_age' => $this->faker->numberBetween(1, 100),
+            'description' => $this->faker->text(),
             'balance' => $this->faker->randomFloat(2, 0, 1000),
         ];
     }

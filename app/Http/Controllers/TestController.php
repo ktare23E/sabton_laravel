@@ -36,7 +36,8 @@ class TestController extends Controller
         $userArray = [];
 
         $tests = DB::table('tests')
-                    ->oldest()
+                    ->whereFullText('description','est')
+                    ->orWhereFullText('description','nemo')
                     ->get();
         dd($tests);
         
