@@ -33,12 +33,12 @@ class TestController extends Controller
         //         ->increment('balance',100);
         // });
 
-
+        $userArray = [];
 
         $users = DB::table('users')
-                    ->orderBy('id')
-                    ->lazy();
-        
+                    ->where('id',1)
+                    ->lazyById()
+                    ->first();
         dd($users);
         
         // return view('test',[
