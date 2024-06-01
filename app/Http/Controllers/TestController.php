@@ -35,11 +35,12 @@ class TestController extends Controller
 
         $userArray = [];
 
-        $users = DB::table('users')
-                    ->where('id',1)
-                    ->lazyById()
-                    ->first();
-        dd($users);
+        $tests = DB::table('tests')
+                    ->select('user_id',DB::raw('SUM(balance) as total_balance'))
+                    ->groupBy('user_id')
+                    ->havingRaw('total_balance > 900')
+                    ->get();
+        dd($tests);
         
         // return view('test',[
         //     'tests' => $tests,
