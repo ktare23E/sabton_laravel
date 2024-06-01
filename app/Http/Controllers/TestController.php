@@ -25,6 +25,7 @@ class TestController extends Controller
         DB::transaction(function(){
             DB::table('tests')
                 ->where('user_id', 6)
+                ->lockForUpdate()
                 ->decrement('balance',100);
 
             DB::table('tests')
