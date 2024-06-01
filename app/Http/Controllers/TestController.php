@@ -22,16 +22,24 @@ class TestController extends Controller
         //             ]);
         // dd($tests);
 
-        DB::transaction(function(){
-            DB::table('tests')
-                ->where('user_id', 6)
-                ->lockForUpdate()
-                ->decrement('balance',100);
+        // DB::transaction(function(){
+        //     DB::table('tests')
+        //         ->where('user_id', 6)
+        //         ->lockForUpdate()
+        //         ->decrement('balance',100);
 
-            DB::table('tests')
-                ->where('user_id',7)
-                ->increment('balance',100);
-        });
+        //     DB::table('tests')
+        //         ->where('user_id',7)
+        //         ->increment('balance',100);
+        // });
+
+
+
+        $users = DB::table('users')
+                    ->orderBy('id')
+                    ->lazy();
+        
+        dd($users);
         
         // return view('test',[
         //     'tests' => $tests,
