@@ -36,8 +36,10 @@ class TestController extends Controller
         $userArray = [];
 
         $tests = DB::table('tests')
-                    ->whereFullText('description','est')
-                    ->orWhereFullText('description','nemo')
+                    ->when(function($query){
+                        return $query->where('balance','>','500');
+                    })
+                    ->orderBy('balance','desc')
                     ->get();
         dd($tests);
         
