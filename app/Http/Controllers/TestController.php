@@ -36,7 +36,8 @@ class TestController extends Controller
         $userArray = [];
 
         $tests = DB::table('tests')
-                    ->paginate(20);
+                    ->orderBy('id')
+                    ->cursorPaginate();
 
 
         
