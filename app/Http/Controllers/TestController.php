@@ -36,10 +36,7 @@ class TestController extends Controller
         $userArray = [];
 
         $tests = DB::table('tests')
-                    ->when(function($query){
-                        return $query->where('balance','>','500');
-                    })
-                    ->orderBy('balance','desc')
+                    ->reorder('name','desc')
                     ->get();
         dd($tests);
         
