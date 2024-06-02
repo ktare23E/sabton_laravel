@@ -36,13 +36,13 @@ class TestController extends Controller
         $userArray = [];
 
         $tests = DB::table('tests')
-                    ->reorder('name','desc')
-                    ->get();
-        dd($tests);
+                    ->paginate(20);
+
+
         
-        // return view('test',[
-        //     'tests' => $tests,
-        // ]);
+        return view('test',[
+            'tests' => $tests,
+        ]);
     }
 
     /**
