@@ -33,11 +33,15 @@ class TestController extends Controller
         //         ->increment('balance',100);
         // });
 
-        $userArray = [];
+        // $userArray = [];
 
-        $tests = DB::table('tests')
-                    ->orderBy('id')
-                    ->cursorPaginate();
+        // $tests = DB::table('tests')
+        //             ->orderBy('id')
+        //             ->cursorPaginate();
+
+
+        $tests = Test::all();
+
 
 
         

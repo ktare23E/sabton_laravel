@@ -50,7 +50,7 @@
                             {{ $test->name }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $test->balance }}
+                            {{ 'P'.$test->balance }}
                         </td>
                         <td class="px-6 py-4">
                             {{ $test->user_age }}
@@ -62,11 +62,11 @@
             </tbody>
         </table>
     </div>
-    <div>
+    {{-- <div>
         <nav>
             {{$tests->links()}}
         </nav>
-    </div>
+    </div> --}}
 
 
     </div>
