@@ -59,6 +59,51 @@ class TestController extends Controller
     public function create()
     {
         //
+
+        // $tests = Test::all();
+
+        // $existingRecord = Test::firstOrCreate(
+        //     ['name' => 'Eloquent is awesome 2'],
+        //     [
+        //         'user_id' => 6,
+        //         'balance' => 1000,
+        //         'user_age' => 90,
+        //         'description' => 'This is a description 3',
+        //     ]
+        // );
+        
+        // dd($existingRecord);
+
+        $existingRecord = Test::firstOrNew(
+            ['name' => 'Eloquent is awesome 5'],
+            [
+                'user_id' => 6,
+                'name' => 'Eloquent is awesome 5',
+                'balance' => 1000,
+                'user_age' => 90,
+                'description' => 'This is a description 5',
+            ]
+        );
+        $existingRecord->save();
+        dd($existingRecord);
+
+
+    
+        // $tests = Test::where('name','Eloquent is awesome 3')->first() ?: 
+        // Test::create(
+        //     [
+        //         'user_id' => 6,
+        //         'name' => 'Eloquent is awesome 3',
+        //         'balance' => 1000,
+        //         'user_age' => 90,
+        //         'description' => 'This is a description 3',
+        //     ]
+        // );
+
+
+        // return view('create',[
+        //     'tests' => $tests,
+        // ]);
     }
 
     /**
