@@ -16,6 +16,8 @@ class Test extends Model
         'user_age',
         'description'
     ];
+
+    // protected $guarded = [];
     
     // public $incrementing = false;
 
