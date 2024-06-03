@@ -23,4 +23,6 @@ class Test extends Model
 
     // public $timestamps = false;
     // protected $dateFormat = 'U';
+
+    //done query builder
 }

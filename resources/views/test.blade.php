@@ -61,15 +61,17 @@
 
             </tbody>
         </table>
-    </div>
-    {{-- <div>
+    </div> 
+    <div>
         <nav>
             {{$tests->links()}}
         </nav>
-    </div> --}}
-
-
     </div>
+
+    
+    </div>
+
+    {{-- <h1 class="font-bold">This is the name: <span class="font-normal">{{$test->name}}</span></h1> --}}
 
     <!-- Include Bootstrap JS (optional) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

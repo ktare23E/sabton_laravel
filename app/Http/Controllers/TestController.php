@@ -40,7 +40,10 @@ class TestController extends Controller
         //             ->cursorPaginate();
 
 
-        $tests = Test::all();
+        // $tests = Test::all();
+
+        $tests = Test::where('user_age', '>', 80)
+                    ->paginate(5);
 
 
 
@@ -71,7 +74,13 @@ class TestController extends Controller
      */
     public function show(Test $test)
     {
-        //
+        // $test = Test::where('user_id',$test->id)->firstOrFail();
+
+    
+
+        return view('show',[
+            'test' => $test,
+        ]);
     }
 
     /**

@@ -9,3 +9,5 @@ Route::get('/', function () {
 
 
 Route::get('/test',[TestController::class,'index']);
+
+Route::get('/show/{test}', [TestController::class, 'show']);
