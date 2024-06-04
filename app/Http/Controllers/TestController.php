@@ -92,11 +92,31 @@ class TestController extends Controller
         //             ->where('id',6)
         //             ->get();
         
-        $users = Test::with('user')
-                ->where('user_id',6)
-                ->get();
+        $test = Test::find(3);
+        $test->name = "Usabon ang name sa id 3";
+        // $test->save();
+        // $test->isClean();
+
+        if($test->isClean()){
+            echo 'Na usab jd sya';
+        }else{
+            echo 'Wla pa na usab';
+        }
+
+        // $test->name = 'Testing the isDirty method 2';
 
 
+        
+        // dd($test);
+        // dd($test->isDirty());
+
+        // if($test->isDirty('name')){
+        //     echo 'Na change na sya';
+        // }else{
+        //     echo 'Wla pa na change';
+        // }
+
+        
 
     
         // $tests = Test::where('name','Eloquent is awesome 3')->first() ?: 
@@ -111,9 +131,9 @@ class TestController extends Controller
         // );
 
 
-        return view('create',[
-            'tests' => $users,
-        ]);
+        // return view('create',[
+        //     'tests' => $users,
+        // ]);
     }
 
     /**
