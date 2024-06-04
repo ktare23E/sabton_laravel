@@ -158,7 +158,9 @@ class TestController extends Controller
         //     ]
         // );
 
+        // Test::whereIn('id',[110,111,112])->delete();
 
+        Test::destroy([106,107,108]);
 
 
         // return view('create',[
