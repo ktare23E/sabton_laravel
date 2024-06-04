@@ -92,16 +92,16 @@ class TestController extends Controller
         //             ->where('id',6)
         //             ->get();
         
-        $test = Test::find(3);
-        $test->name = "Usabon ang name sa id 3";
+        // $test = Test::find(3);
+        // $test->name = "Usabon ang name sa id 3";
         // $test->save();
         // $test->isClean();
 
-        if($test->isClean()){
-            echo 'Na usab jd sya';
-        }else{
-            echo 'Wla pa na usab';
-        }
+        // if($test->isClean()){
+        //     echo 'Na usab jd sya';
+        // }else{
+        //     echo 'Wla pa na usab';
+        // }
 
         // $test->name = 'Testing the isDirty method 2';
 
@@ -129,6 +129,36 @@ class TestController extends Controller
         //         'description' => 'This is a description 3',
         //     ]
         // );
+
+
+        // Test::updateOrCreate(
+        //     [
+        //         'id' => 3
+        //     ],
+        //     [
+        //         'user_id' => 6,
+        //         'name' => 'Newly Updated kay ga exist',
+        //         'user_age' => 25.23,
+        //         'balance' => 70,
+        //         'description' => 'Trying this one'
+
+        //     ]
+        // );
+
+        // Test::upsert(
+        //     [
+        //         'user_id' => 6,
+        //         'name' => 'Newly Updated kay ga exist 3',
+        //         'user_age' => 25.23,
+        //         'balance' => 70,
+        //         'description' => 'Trying this one'
+        //     ],
+        //     [
+        //         'id' => 3
+        //     ]
+        // );
+
+
 
 
         // return view('create',[
