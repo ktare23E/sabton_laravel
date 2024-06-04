@@ -162,17 +162,20 @@ class TestController extends Controller
 
         // Test::destroy([106,107,108]);
 
-        $test = Test::create([
-            'user_id' => 6,
-            'name' => 'Newly Created 3',
-            'user_age' => 30,
-            'balance' => 20.59,
-            'description' => 'Trying new one'
-        ]);
+        // $test = Test::create([
+        //     'user_id' => 6,
+        //     'name' => 'Newly Created 3',
+        //     'user_age' => 30,
+        //     'balance' => 20.59,
+        //     'description' => 'Trying new one'
+        // ]);
 
-        $test->replicate()->fill([
-            'name' => 'Replicated',
-        ])->save();
+        // $test->replicate()->fill([
+        //     'name' => 'Replicated',
+        // ])->save();
+
+        $test = Test::all();
+        dd($test);
 
 
         // return view('create',[

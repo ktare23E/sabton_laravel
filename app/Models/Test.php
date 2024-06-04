@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Scopes\UserBalanceScope;
 
 class Test extends Model
 {
@@ -16,6 +17,11 @@ class Test extends Model
         'user_age',
         'description'
     ];
+
+    protected static function booted() : void
+    {
+        static::addGlobalScope(new UserBalanceScope());
+    }
 
     // protected $guarded = [];
     
