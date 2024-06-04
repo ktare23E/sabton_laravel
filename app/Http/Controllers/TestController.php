@@ -160,7 +160,19 @@ class TestController extends Controller
 
         // Test::whereIn('id',[110,111,112])->delete();
 
-        Test::destroy([106,107,108]);
+        // Test::destroy([106,107,108]);
+
+        $test = Test::create([
+            'user_id' => 6,
+            'name' => 'Newly Created 3',
+            'user_age' => 30,
+            'balance' => 20.59,
+            'description' => 'Trying new one'
+        ]);
+
+        $test->replicate()->fill([
+            'name' => 'Replicated',
+        ])->save();
 
 
         // return view('create',[
