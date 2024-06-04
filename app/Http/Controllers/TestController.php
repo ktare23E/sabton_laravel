@@ -174,9 +174,17 @@ class TestController extends Controller
         //     'name' => 'Replicated',
         // ])->save();
 
-        $test = Test::all();
-        dd($test);
+        // $test = Test::all();
+        // dd($test);
 
+        // $tests = Test::withUserData()->where('user_id',6)->get();
+        // dd($tests);
+
+        // $tests = Test::withTestAge()->get();
+        // dd($tests);
+        
+        $tests = Test::withUserData()->withTestAge()->get();
+        dd($tests);
 
         // return view('create',[
         //     'tests' => $users,

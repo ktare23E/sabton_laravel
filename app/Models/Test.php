@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Scopes\UserBalanceScope;
+use Illuminate\Database\Eloquent\Builder;
 
 class Test extends Model
 {
@@ -18,9 +19,18 @@ class Test extends Model
         'description'
     ];
 
-    protected static function booted() : void
-    {
-        static::addGlobalScope(new UserBalanceScope());
+    // protected static function booted() : void
+    // {
+    //     static::addGlobalScope(new UserBalanceScope());
+    // }
+
+    public function scopeWithUserData(Builder $builder){
+        return $builder->join('users','tests.user_id','=','users.id')
+                        ->select('tests.*','users.name as user_name','users.email');
+    }
+
+    public function scopeWithTestAge(Builder $builder){
+        return $builder->whereBetween('user_age',[10,30]);
     }
 
     // protected $guarded = [];
