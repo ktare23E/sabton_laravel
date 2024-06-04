@@ -25,4 +25,8 @@ class Test extends Model
     // protected $dateFormat = 'U';
 
     //done query builder
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

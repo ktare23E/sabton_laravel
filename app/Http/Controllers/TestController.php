@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Test;
 use App\Http\Requests\StoreTestRequest;
 use App\Http\Requests\UpdateTestRequest;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
 
@@ -74,18 +75,27 @@ class TestController extends Controller
         
         // dd($existingRecord);
 
-        $existingRecord = Test::firstOrNew(
-            ['name' => 'Eloquent is awesome 5'],
-            [
-                'user_id' => 6,
-                'name' => 'Eloquent is awesome 5',
-                'balance' => 1000,
-                'user_age' => 90,
-                'description' => 'This is a description 5',
-            ]
-        );
-        $existingRecord->save();
-        dd($existingRecord);
+        // $existingRecord = Test::firstOrNew(
+        //     ['name' => 'Eloquent is awesome 5'],
+        //     [
+        //         'user_id' => 6,
+        //         'name' => 'Eloquent is awesome 5',
+        //         'balance' => 1000,
+        //         'user_age' => 90,
+        //         'description' => 'This is a description 5',
+        //     ]
+        // );
+        // $existingRecord->save();
+        // dd($existingRecord);
+
+        // $users = User::with('tests')
+        //             ->where('id',6)
+        //             ->get();
+        
+        $users = Test::with('user')
+                ->where('user_id',6)
+                ->get();
+
 
 
     
@@ -101,9 +111,9 @@ class TestController extends Controller
         // );
 
 
-        // return view('create',[
-        //     'tests' => $tests,
-        // ]);
+        return view('create',[
+            'tests' => $users,
+        ]);
     }
 
     /**
