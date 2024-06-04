@@ -33,6 +33,10 @@ class Test extends Model
         return $builder->whereBetween('user_age',[10,30]);
     }
 
+    public function scopeWithRetrieveDynamicTest(Builder $builder,$user_id){
+        return $builder->where('user_id',$user_id);
+    }
+
     // protected $guarded = [];
     
     // public $incrementing = false;

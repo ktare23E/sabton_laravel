@@ -183,8 +183,15 @@ class TestController extends Controller
         // $tests = Test::withTestAge()->get();
         // dd($tests);
         
-        $tests = Test::withUserData()->withTestAge()->get();
-        dd($tests);
+        // $tests = Test::withUserData()->withTestAge()->get();
+        // dd($tests);
+
+        // Test::where('id',1)->update([
+        //     'name' => 'Nice one',
+        // ]);
+
+        $test = Test::withRetrieveDynamicTest(6)->get();
+        dd($test);
 
         // return view('create',[
         //     'tests' => $users,
