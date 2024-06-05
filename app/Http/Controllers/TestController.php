@@ -7,6 +7,7 @@ use App\Http\Requests\StoreTestRequest;
 use App\Http\Requests\UpdateTestRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use App\Models\Contact;
 
 
 class TestController extends Controller
@@ -193,8 +194,20 @@ class TestController extends Controller
         // $test = Test::withTestAge()->get();
         // dd($test);
 
-        $test = Test::all();
-        dd($test);
+        // $test = Test::all();
+        // dd($test);
+
+        // $contact = Contact::with('user')->get();
+        // dd($contact);
+
+        // $user = ;
+        // dd($user);
+
+        // $test = User::find(26);
+
+        $test = Contact::find(11);
+        echo $test->user->name;
+        // dd($test->contact->email);
 
         // return view('create',[
         //     'tests' => $users,
