@@ -44,18 +44,28 @@ class PostController extends Controller
         // $tags = Tag::with('posts')->get();
         // dd($tags);
         
-        $user = User::find(3);
-        $posts = $user->posts;
-        //retrieve all the post id using this user
-        $postIds = $posts->pluck('id')->toArray();
-        //check if this ids exist in post_tag
-        $tags = Tag::whereHas('posts', function ($query) use ($postIds) {
-            $query->whereIn('post_id', $postIds);
-        })->get();
+        // $user = User::find(3);
+        // $posts = $user->posts;
+        // //retrieve all the post id using this user
+        // $postIds = $posts->pluck('id')->toArray();
+        // //check if this ids exist in post_tag
+        // $tags = Tag::whereHas('posts', function ($query) use ($postIds) {
+        //     $query->whereIn('post_id', $postIds);
+        // })->get();
         
-        foreach ($tags as $tag) {
-            echo $tag->tag_name.'<br>';
+        // foreach ($tags as $tag) {
+        //     echo $tag->tag_name.'<br>';
+        // }
+
+        $users = User::with('posts')->get();
+        foreach($users as $user) {
+            echo $user->name.'<br>';
+            foreach($user->posts as $post) {
+                echo $post->title.'<br>';
+            }
         }
+
+
         // $user = User::find(21);
         // $post = $user->posts;
         // foreach ($post as $post) {
