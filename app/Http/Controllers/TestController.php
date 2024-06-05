@@ -190,7 +190,10 @@ class TestController extends Controller
         //     'name' => 'Nice one',
         // ]);
 
-        $test = Test::withRetrieveDynamicTest(6)->get();
+        // $test = Test::withTestAge()->get();
+        // dd($test);
+
+        $test = Test::all();
         dd($test);
 
         // return view('create',[
