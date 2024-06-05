@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
+use App\Models\Tag;
 use App\Models\User;
 
 class PostController extends Controller
@@ -17,11 +18,49 @@ class PostController extends Controller
         // $user = User::find(10);
         // dd($user->posts);
 
-        $user = User::find(21);
-        $post = $user->posts;
-        foreach ($post as $post) {
-            echo $post->title.'<br>';
+        // User::create([
+        //     'name' => 'John Doe',
+        //     'password' => 'password',
+        // ]);
+
+        // $user = User::find(1);
+        // $user = $user->posts()->create([
+        //     'title' => 'Post Title',
+        //     'content' => 'Post Content',
+        // ]);
+   
+        // $tagId = [1,2,3];
+        // $post = Post::find(10);
+        // $post->tags()->detach($tagId);
+        // $posts = $post->tags;
+     
+        // foreach ($posts as $post) {
+        //     echo $post->tag_name.'<br>';
+        // }
+
+        // $user = Post::with('user','tags')->get();
+        // dd($user);
+
+        // $tags = Tag::with('posts')->get();
+        // dd($tags);
+        
+        $user = User::find(3);
+        $posts = $user->posts;
+        //retrieve all the post id using this user
+        $postIds = $posts->pluck('id')->toArray();
+        //check if this ids exist in post_tag
+        $tags = Tag::whereHas('posts', function ($query) use ($postIds) {
+            $query->whereIn('post_id', $postIds);
+        })->get();
+        
+        foreach ($tags as $tag) {
+            echo $tag->tag_name.'<br>';
         }
+        // $user = User::find(21);
+        // $post = $user->posts;
+        // foreach ($post as $post) {
+        //     echo $post->title.'<br>';
+        // }
         // return view('post');
     }
 

@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             TestSeeder::class,
             ContactSeeder::class,
             PostSeeder::class,
+            TagSeeder::class,
         ]);
 
 
