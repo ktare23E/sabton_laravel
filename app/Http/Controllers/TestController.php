@@ -205,8 +205,8 @@ class TestController extends Controller
 
         // $test = User::find(26);
 
-        $test = Contact::find(11);
-        echo $test->user->name;
+        $test = User::find(16);
+        dd($test->contact);
         // dd($test->contact->email);
 
         // return view('create',[
