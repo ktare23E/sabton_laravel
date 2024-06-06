@@ -67,4 +67,14 @@ class User extends Authenticatable
     {
         return $this->hasOneThrough(PhoneNumber::class,Company::class);
     }
+
+    public function latestJob(): HasOne
+    {
+        return $this->hasOne(Job::class)->latestOfMany();
+    }
+
+    public function oldestJob():HasOne
+    {
+        return $this->hasOne(Job::class)->oldestOfMany();
+    }
 }

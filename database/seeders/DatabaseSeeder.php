@@ -30,7 +30,8 @@ class DatabaseSeeder extends Seeder
             PostSeeder::class,
             TagSeeder::class,
             CompanySeeder::class,
-            PhoneNumberSeeder::class
+            PhoneNumberSeeder::class,
+            JobSeeder::class
         ]);
 
 
