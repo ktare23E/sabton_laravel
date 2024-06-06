@@ -22,17 +22,20 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        User::factory(5)->create();
+       
         // $this->call(TestSeeder::class); 
         $this->call([
+            CountrySeeder::class,
             TestSeeder::class,
             ContactSeeder::class,
             PostSeeder::class,
             TagSeeder::class,
             CompanySeeder::class,
             PhoneNumberSeeder::class,
-            JobSeeder::class
+            JobSeeder::class,
         ]);
+
+        User::factory(5)->create();
 
 
         //call the test seeder
