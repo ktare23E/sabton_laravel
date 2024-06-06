@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Company;
 use App\Models\Post;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -28,6 +29,8 @@ class DatabaseSeeder extends Seeder
             ContactSeeder::class,
             PostSeeder::class,
             TagSeeder::class,
+            CompanySeeder::class,
+            PhoneNumberSeeder::class
         ]);
 
 

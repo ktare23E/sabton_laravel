@@ -57,14 +57,16 @@ class PostController extends Controller
         //     echo $tag->tag_name.'<br>';
         // }
 
-        $users = User::with('posts')->get();
-        foreach($users as $user) {
-            echo $user->name.'<br>';
-            foreach($user->posts as $post) {
-                echo $post->title.'<br>';
-            }
-        }
+        // $users = User::with('posts')->get();
+        // foreach($users as $user) {
+        //     echo $user->name.'<br>';
+        //     foreach($user->posts as $post) {
+        //         echo $post->title.'<br>';
+        //     }
+        // }
 
+        $user = User::find(3);
+        dump($user->companyPhoneNumber);
 
         // $user = User::find(21);
         // $post = $user->posts;
