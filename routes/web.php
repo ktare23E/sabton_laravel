@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TestController;
@@ -22,3 +23,5 @@ Route::get('/post',[PostController::class,'index']);
 
 Route::get('/job',[JobController::class,'index']);
 Route::get('/country',[CountryController::class,'index']);
+
+Route::get('/image',[ImageController::class,'index']);
