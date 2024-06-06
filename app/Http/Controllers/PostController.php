@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
+use App\Models\Comment;
 use App\Models\Tag;
 use App\Models\User;
+use App\Models\Video;
 
 class PostController extends Controller
 {
@@ -65,8 +67,15 @@ class PostController extends Controller
         //     }
         // }
 
-        $user = User::find(3);
-        dump($user->companyPhoneNumber);
+        // $user = User::find(3);
+        // dump($user->companyPhoneNumber);
+
+        // $post = Post::find(1);
+        // dd($post->comments);
+        // $video = Video::find(1);
+        // dd($video->comments);
+        $comment = Comment::find(3);
+        dd($comment->commentable);
 
         // $user = User::find(21);
         // $post = $user->posts;
