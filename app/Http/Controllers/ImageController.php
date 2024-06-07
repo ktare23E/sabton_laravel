@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Image;
 use App\Http\Requests\StoreImageRequest;
 use App\Http\Requests\UpdateImageRequest;
+use App\Models\Post;
 use App\Models\User;
 
 class ImageController extends Controller
@@ -15,9 +16,11 @@ class ImageController extends Controller
     public function index()
     {
         //
-        $user = User::find(1);
-        $image = $user->image()->get();
-        dd($image);
+        // $user = User::find(1);
+        // dd($user->oldestImage);
+
+        $post = Post::find(2);
+        dd($post->oldestImage ?? 'No image found');
     }
 
     /**
