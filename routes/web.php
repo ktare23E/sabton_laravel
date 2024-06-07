@@ -4,6 +4,7 @@ use App\Http\Controllers\CountryController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\TagController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,3 +26,5 @@ Route::get('/job',[JobController::class,'index']);
 Route::get('/country',[CountryController::class,'index']);
 
 Route::get('/image',[ImageController::class,'index']);
+
+Route::get('/tag',[TagController::class,'index']);

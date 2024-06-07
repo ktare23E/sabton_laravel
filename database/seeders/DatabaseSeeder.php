@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
             CompanySeeder::class,
             PhoneNumberSeeder::class,
             JobSeeder::class,
+            VideoSeeder::class,
         ]);
 
         User::factory(5)->create();

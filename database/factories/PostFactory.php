@@ -20,7 +20,7 @@ class PostFactory extends Factory
         return [
             //
             'user_id' => User::inRandomOrder()->first()->id,
-            'title' => $this->faker->sentence,
+            'post_title' => $this->faker->sentence,
             'content' => $this->faker->paragraph,
         ];
     }
